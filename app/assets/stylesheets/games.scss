@@ -1,0 +1,39 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#header{
+  background:  #326295 !important;
+}
+#footer{
+  background:  #326295 !important;
+}
+#game-list{
+  background-color: #F8F9FA !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 78vh;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #F8F9FA; 
+}
+// .show{
+// }
+.style{
+  transition: all .3s ease-out;
+}
