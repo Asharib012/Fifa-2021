@@ -1,0 +1,50 @@
+div id=dom_id(game) data-controller="game" data-game-id-value = game.id data-game-user-value = current_user.id 
+  #game1.row.d-flex.align-items-center.border-bottom.px-2.py-4.bg-light.game
+    .logo.col-lg-2.text-center
+      = image_tag game.home_team_img, width: 50, height: 50, class:"team-logo m-2"
+      = image_tag game.away_team_img, width: 50, height: 50, class:"team-logo m-2"
+    .name.col-lg-3.text-center.text-uppercase
+      span.p-2 = game.home_team  
+      | -
+      span.p-2 = game.away_team
+      br
+      span.p-2.small.text-muted
+        | 11:14 06-05-2020
+    .col-lg-1.text-center.text-capitalize
+      span.p-2
+        | 5
+      br  
+      span.p-2.small.text-muted
+        | reach   
+    .col-lg-2.text-center.text-capitalize  
+      span.p-2
+        | ten sports
+      br  
+      span.p-2.small.text-muted
+        | channel
+    .col-lg-1.text-center.text-capitalize
+      span.p-2
+        | serie a
+      br  
+      span.p-2.small.text-muted
+        | league
+    .price.col-lg-1.text-center
+      span.fw-bold.p-2.text-success
+        | $2200/min    
+    .col-lg-2.text-center  
+      = form_for game, html:{ data: {'game-target': "form"}} do |form|
+        .btn-group[role="group" aria-label="Basic s"]
+          button.btn.px-3[type="button"  data-action="click->game#decrement"]
+            i.fa.fa-angle-down[aria-hidden="true"]
+          = form.text_field :minutes, :size =>1, class: "border-0 text-center minute bg-light", data: {'game-target': 'minute'}
+          button.btn.btn-secondary.px-3[type="button" data-action="click->game#increment"    ]  
+            i.fa.fa-angle-up[aria-hidden="true"]
+            
+      /= form_for game, html:{ data: {'example-target': "form"}} do |form|
+        .btn-group[role="group" aria-label="Basic example"]
+          button.btn.px-3[type="button"  data-action="click->example#decrement"]
+            i.fa.fa-angle-down[aria-hidden="true"]
+          = form.text_field :minutes, :size =>1, class: "border-0 text-center minute bg-light", data: {'example-target': 'minute'}
+          button.btn.btn-secondary.px-3[type="button" data-action="click->example#increment"    ]  
+            i.fa.fa-angle-up[aria-hidden="true"]
+      

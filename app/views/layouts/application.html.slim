@@ -5,13 +5,15 @@ html
     meta name="viewport" content="width=device-width,initial-scale=1"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' 
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    csrf_meta_tags 
-    csp_meta_tag 
-    
-
+    = action_cable_meta_tag 
+    = csrf_meta_tags 
+    = csp_meta_tag
   body
     = render partial: "layouts/header"
-    =yield
+    = yield
     = render partial: "layouts/footer"
+    = render partial: "layouts/file"  
+
+link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"
 
 

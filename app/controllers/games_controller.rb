@@ -1,6 +1,5 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[ show edit update destroy ]
-  skip_before_action :verify_authenticity_token
 
   # GET /games or /games.json
   def index
@@ -65,7 +64,6 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.permit(:id, :minutes)
-
+      params.require(:game).permit(:minutes)
     end
 end

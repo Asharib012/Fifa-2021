@@ -32,6 +32,8 @@ Rails.application.configure do
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
+  config.action_controller.perform_caching = true
+  config.cache_store = :redis_cache_store, {driver: :hiredis, url: Rails.application.credentials.redis_url}
 
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test

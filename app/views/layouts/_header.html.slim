@@ -1,0 +1,21 @@
+header#header.p-2
+    .container-fluid
+      nav.px-3.navbar.d-flex
+        a.navbar-brand.d-inline[href="#"]
+          = image_tag "fifacom-white-3e9c1d66.svg", width: 160, height: 'auto'
+        
+        - if user_signed_in?
+          .d-flex.in-line 
+            div data-controller = "game" 
+              .nav-item.dropdown[data-action = "click->game#remove"] 
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.text-white[href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"]
+                  i.fa.fa-bell.text-white[aria-hidden="true"]
+                  span#badge.position-absolute.top-0.start-75.translate-middle.badge.rounded-pill.bg-danger
+                      
+                ul.menu.vh-30.dropdown-menu[aria-labelledby="navbarDropdownMenuLink" ]
+                  .notify
+                      - @notifications = Notification.all.order(created_at: :desc)
+                      = render partial: "games/notifications", collection: @notifications
+            div 
+              = link_to "Sign-Out", destroy_user_session_path, method: :delete, class: "btn btn-primary my-auto float-end d-inline col"
+
